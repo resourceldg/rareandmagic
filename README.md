@@ -1,0 +1,2 @@
+# rareandmagic
+wordpress store
