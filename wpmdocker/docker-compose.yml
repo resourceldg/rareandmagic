@@ -72,3 +72,4 @@ volumes:
   html:
   vhostd:
   db_data:
+  wordpress:
