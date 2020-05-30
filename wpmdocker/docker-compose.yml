@@ -32,7 +32,7 @@ services:
      image: mysqllatch
      build: ./db
      volumes:
-       - db_data:/var/lib/mysql:ro
+       - db_data:/var/lib/mysql
      restart: always
      environment:
        MYSQL_ROOT_PASSWORD: mysqlroot
@@ -52,7 +52,7 @@ services:
      #image: wordpress:latest
      restart: always
      volumes:
-       - ./wordpress:/var/www/html/wordpress:ro
+       - ./wordpress:/var/www/html/wordpress
      expose:
        - "80"
      environment:
