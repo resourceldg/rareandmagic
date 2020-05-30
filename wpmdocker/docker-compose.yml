@@ -30,7 +30,7 @@ services:
   db:
      container_name: dbwpm
      image: mysqllatch
-build: ./db
+     build: ./db
      volumes:
        - db_data:/var/lib/mysql:ro
      restart: always
