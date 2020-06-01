@@ -1,4 +1,4 @@
-# rareandmagic
+# RareandMagic: Site Reliability Engineer
 
 setup completo
 
