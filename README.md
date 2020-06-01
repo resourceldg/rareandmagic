@@ -11,30 +11,29 @@ google-autenticator
 docker
 
 
-888
-888 888  888  e88~~\   /~~~8e   d88~
-888 888  888 d888          88b C888
-888 888  888 8888     e88~-888  Y88b
-888 888  888 Y888    C888  888   888D
-888 88_-888  88__/  88_-888 \_888/
 
 
-#accesso ssh
+# accesso ssh
+-----------------------------------------------------------------------------------------------------------------------------
 
 1 sudo ssh  root@<ip> -p 22
 2 nano hard.sh
 3 chmod -R 777 hard.sh
 4 ./hard.sh
 5 google-authenticator
-#vinculamos con latch para generar totp
+
+# vinculamos con latch para generar totp
 scaneamos el QR y restarteamos el demonio sshd
-aceptamos 
+aceptamos
+
+-----------------------------------------------------------------------------------------------------------------------------
+
 6 service restart sshd
 en tu host local borramos la llave antigua
 7 ssh-keygen -f "/root/.ssh/known_hosts" -R "[66.97.43.98]:5633"
 8 volvemos a conectarnos
 9 sudo ssh  root@66.97.43.98 -p 5633
-#ponemos la clave de verificacion generada por la app latch
+ponemos la clave de verificacion generada por la app latch
 y luego el pass del servidor
 si entramos es porque ya tenemos el TOPt
 
@@ -42,7 +41,7 @@ si entramos es porque ya tenemos el TOPt
 11 cd
 
 # instalar docker
---------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
 
         12 sudo apt-get install curl apt-transport-https ca-certificates software-properties-common
         13 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -54,14 +53,15 @@ si entramos es porque ya tenemos el TOPt
         19 sudo docker run hello-world
         20.0  sudo usermod -aG docker $(whoami)
         
-        #instalar docker compose
-        ------------------------------------------------------------------------------------------------------------------------------------------------------------
+# instalar docker compose
+        -----------------------------------------------------------------------------------------------------------------------------
       
         20.1 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-		20.2 sudo chmod +x /usr/local/bin/docker-compose
+	
+	20.2 sudo chmod +x /usr/local/bin/docker-compose
 
         
-#wordpress on paranoid mode
+# wordpress on paranoid mode
 -----------------------------------------------------------------------------------------------
 		21 git clone https://github.com/resourceldg/rareandmagic.git
         22 cd rareandmagic/wpmdocker
