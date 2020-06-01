@@ -39,8 +39,8 @@ services:
        MYSQL_DATABASE: wordpress
        MYSQL_USER: root
        MYSQL_PASSWORD: mysqlroot
-       LATCHAPPID: 2hMPhcVwnGVwBEju4agR
-       LATCHSECRET: kXJt9bpPvHtBCfg2xCEKNFZwXN4s9bR7hzgXgBwq
+       LATCHAPPID: 
+       LATCHSECRET: 
 
 
   wordpress:
@@ -59,9 +59,9 @@ services:
        - WORDPRESS_DB_HOST:"wordpress"
        - WORDPRESS_DB_USER:"root"
        - WORDPRESS_DB_PASSWORD:"mysqlroot"
-       - VIRTUAL_HOST=softweel.com,www.softweel.com
-       - LETSENCRYPT_HOST=softweel.com,www.softweel.com
-       - LETSENCRYPT_EMAIL=resourceldg@gmail.com
+       - VIRTUAL_HOST=rareandmagic.space,www.rareandmagic.space
+       - LETSENCRYPT_HOST=rareandmagic.space,www.rareandmagic.space
+       - LETSENCRYPT_EMAIL=dev@mail.com
 
      links:
       - db:db
