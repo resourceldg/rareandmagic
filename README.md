@@ -53,8 +53,9 @@ aceptamos
         19 sudo docker run hello-world
         20.0  sudo usermod -aG docker $(whoami)
         
-# instalar docker compose     -----------------------------------------------------------------------------------------------------------------------------
-      
+# instalar docker compose 
+-----------------------------------------------------------------------------------------------------------------------------
+ 
         20.1 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 	
 	20.2 sudo chmod +x /usr/local/bin/docker-compose
@@ -68,59 +69,50 @@ aceptamos
         23 add <idapp> and <secret> in docker-compose
         24 docker-compose up -d
         
-	ERRORES COMUNES 
+ERRORES COMUNES 
 
-        algunos consejos de Docker en este momento
-        acceder al bash del contenedor: docker exec  -it <nombre del contenedor> bash
-        salir del contenedor sin romper la salida  CTRL + P + Q 
-       
-       
-        Error 01  de acceso a la base de datos por defecto
-        Nombre de la bd  wordpress
-        nombre de usuario root
-        pass mysqlroot
-        passdb mysqlroot
-        hostdb db
-        prefijo wp_
+algunos consejos de Docker en este momento
+acceder al bash del contenedor: docker exec  -it <nombre del contenedor> bash
+salir del contenedor sin romper la salida  CTRL + P + Q 
+
+
+Error 01  de acceso a la base de datos por defecto
+Nombre de la bd  wordpress
+nombre de usuario root
+pass mysqlroot
+passdb mysqlroot
+hostdb db
+prefijo wp_
+
+
+Error 02 NO CARGA DEL CSS
+Solucion  dentro del contenedor wpm
+entrar con:
+docker exect -it wpm bash
+instalar nano
+sudo apt-get update 
+sudo apt-get install vim nano
+nano wp-config.php
         
-         
-        Error 02 NO CARGA DEL CSS
-        Solucion  dentro del contenedor wpm
-        entrar con:
-        docker exect -it wpm bash
-        instalar nano
-        sudo apt-get update 
-        sudo apt-get install vim nano
-        nano wp-config.php
+# AGREGAR:
+-----------------------------------------------------------------------------------------------------------------------------
+ 
         
-       AGREGAR:
-        
-         if ($_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') $_SERVER['HTTPS']='on';
-       
-       ANTES DE LA LINEA:
+        if ($_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') $_SERVER['HTTPS']='on';
+
+
+# ANTES DE LA LINEA:
+-----------------------------------------------------------------------------------------------------------------------------
+ 
         
         require_once(ABSPATH . 'wp-settings.php');
         
         
         
-        
-        SOLUCION PARCIAL LINK https://wordpress.stackexchange.com/questions/75921/ssl-breaks-wordpress-css
+SOLUCION PARCIAL LINK https://wordpress.stackexchange.com/questions/75921/ssl-breaks-wordpress-css
    
        
-	For the login part, this works for me ...
-
-	Paste the following line in your wp-config.php
-
-	if ($_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') $_SERVER['HTTPS']='on';
-
-	but make sure that you do it before the following line
-
-	require_once(ABSPATH . 'wp-settings.php');
-
-	By doing so you can get your admin panel back ... See details here
-
-	Also to avoid getting Mixed content, after restoring your admin panel, remember to go to SETTINGS, General, change 	Server URL from http to https.
-
+	
 
 	25 COMPLETAR LA INSTALACION POR DEFECTO DE WORDPRESS
 	26 GENERAR LA APP EN LATCH
